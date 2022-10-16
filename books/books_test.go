@@ -94,4 +94,14 @@ var _ = Describe("Book", func() {
 		Entry("Novel", Book{Pages: 2783}, "NOVEL"),
 		Entry("Short Story", Book{Pages: 24}, "SHORT STORY"),
 	)
+
+	DescribeTable("addition",
+		func(a, b, c int) {
+			Expect(a + b).To(Equal(c))
+		},
+		EntryDescription("%d + %d = %d"),
+		Entry(nil, 1, 2, 3),
+		Entry(EntryDescription("%[3]d = %[1]d + %[2]d"), 10, 100, 110),
+		Entry(func(a, b, c int) string { return fmt.Sprintf("%d = %d", a+b, c) }, 4, 3, 7),
+	)
 })
