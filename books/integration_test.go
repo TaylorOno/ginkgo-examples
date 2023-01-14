@@ -1,3 +1,6 @@
+//go:build e2e
+// +build e2e
+
 package books_test
 
 import (
@@ -10,6 +13,6 @@ func lala(s string) {
 	fmt.Println("lala")
 }
 
-var _ = ginkgo.Describe("test", func() {
+var _ = ginkgo.Describe("e2e tests using build flags", func() {
 	gomega.Expect(true).To(gomega.BeTrue())
 })
